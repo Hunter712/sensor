@@ -90,7 +90,7 @@ def sensor_data():
         if sensor.get_sensor_data():
             output = f'BME680: Temp: {sensor.data.temperature:.1f} C, Humidity: {sensor.data.humidity:.1f} %, Pressure: {sensor.data.pressure:.1f} hPa,'
             if sensor.data.heat_stable:
-                gas_resistance = sensor.data.gas_resistance / 1000
+                gas_resistance = sensor.data.gas_resistance
 
                 # iaq = (sensor.data.gas_resistance * sensor.data.temperature) / (sensor.data.humidity / 100)
                 # iaqn1 = (iaq - 75000) / (4375000 - 75000) * 500
