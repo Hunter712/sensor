@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+</head>
+<body>
+    <div id="sensor-data">Loading...</div>
+
+    <script>
+        const socket = io();
+
+        socket.on('sensor_update', function(data) {
+            const sensorData = JSON.stringify(data);
+            let formattedData = sensorData.replace(/,/g, '\n');
+            formattedData = formattedData.replace(/"/g, '');
+            document.getElementById('sensor-data').innerText = formattedData;
+    });
+    </script>
+</body>
+</html>
