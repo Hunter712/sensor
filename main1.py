@@ -92,11 +92,11 @@ def sensor_data():
             if sensor.data.heat_stable:
                 gas_resistance = sensor.data.gas_resistance / 1000
 
-                iaq = (sensor.data.gas_resistance * sensor.data.temperature) / (sensor.data.humidity / 100)
-                iaqn1 = (iaq - 75000) / (4375000 - 75000) * 500
+                # iaq = (sensor.data.gas_resistance * sensor.data.temperature) / (sensor.data.humidity / 100)
+                # iaqn1 = (iaq - 75000) / (4375000 - 75000) * 500
 
-                iaqn2 = calculate_iaq(sensor.data.temperature, sensor.data.humidity, sensor.data.gas_resistance)
-                output += f' Gas: {gas_resistance:.3f} Ohms, iaq1: {iaqn1:.2f}, iaq2: {iaqn2:.2f},'
+                #iaqn2 = calculate_iaq(sensor.data.temperature, sensor.data.humidity, sensor.data.gas_resistance)
+                output += f' Gas: {gas_resistance:.3f} Ohms' #iaq1: {iaqn1:.2f}, iaq2: {iaqn2:.2f},'
             else:
                 output = None
         else:
